@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-    baseURL: `http://my-json-server.typicode.com/Code-Pop/real-world-nuxt/`, //on mock api (json-server) http://localhost:3004
+    baseURL: `http://my-json-server.typicode.com/codeDragon491/portfolio-data`, //on mock api (json-server) http://localhost:3004
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -11,9 +11,9 @@ const apiClient = axios.create({
 
 export default {
     getEvents() {
-        return apiClient.get('/events')
+        return apiClient.get('/works')
     },
     getEvent(id) {
-        return apiClient.get('/events/' + id)
+        return apiClient.get('/works/' + id)
     }
 }

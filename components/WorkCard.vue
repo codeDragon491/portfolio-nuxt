@@ -5,7 +5,7 @@
       <h4 class="title">
         {{ event.title }}
       </h4>
-      <span>{{ event.attendees.length }} attending</span>
+      <span>{{ event.description }} attending</span>
     </div>
   </nuxt-link>
 </template>
