@@ -1,38 +1,10 @@
 <template>
   <div>
-    <div class="event-header">
-      <span class="eyebrow"> @{{ event.time }} on {{ event.date }} </span>
-      <h1 class="title">
-        {{ event.title }}
-      </h1>
-      <h5>Organized by {{ event.organizer ? event.organizer.name : '' }}</h5>
-      <h5>Category: {{ event.category }}</h5>
+    <div class="work-header">
     </div>
 
-    <span name="map">
-      <h2>Location</h2>
-    </span>
-
-    <address>{{ event.location }}</address>
-
-    <h2>Event details</h2>
-    <p>{{ event.description }}</p>
-
-    <h2>
-      Attendees
-      <span class="badge -fill-gradient">
-        {{ event.attendees ? event.attendees.length : 0 }}
-      </span>
-    </h2>
-    <ul class="list-group">
-      <li
-        v-for="(attendee, index) in event.attendees"
-        :key="index"
-        class="list-item"
-      >
-        <b>{{ attendee.name }}</b>
-      </li>
-    </ul>
+    <h2>Work details</h2>
+    <p>description</p>
   </div>
 </template>
 <script>
@@ -57,11 +29,11 @@ export default {
   },*/
   async fetch({ store, params, error }) {
     try {
-      await store.dispatch('works/fetchEvent', params.id)
+      await store.dispatch('works/fetchWork', params.id)
     } catch (e) {
       error({
         statusCode: 503,
-        message: 'Unable to fetch events at this time. Please try again later.'
+        message: 'Unable to fetch work at this time. Please try again later.'
       })
     }
   },
@@ -71,16 +43,16 @@ export default {
     }
   },*/
   computed: mapState({
-    event: (state) => state.works.event
+    work: (state) => state.works.work
   }),
   head() {
     return {
-      title: 'Work' + this.event.title,
+      title: 'Work' + this.work.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: "Where you can read about Julia's work" + this.event.title
+          content: "Where you can read about Julia's work" + this.work.title
         }
       ]
     }

@@ -1,10 +1,10 @@
 <template>
   <div class="page">
-    <h1>Work</h1>
+    <h1>Works</h1>
     <WorkCard
-      v-for="(event, index) in events"
+      v-for="(work, index) in works"
       :key="index"
-      :event="event"
+      :work="work"
       :data-index="index"
     />
   </div>
@@ -27,17 +27,17 @@ export default {
   },
   async fetch({ store, error }) {
     try {
-      await store.dispatch('works/fetchEvents')
+      await store.dispatch('works/fetchWorks')
     } catch (e) {
       error({
         statusCode: 503,
-        message: 'Unable to fetch events at this time. Please try again later.'
+        message: 'Unable to fetch works at this time. Please try again later.'
       })
     }
   },
   components: { WorkCard },
   computed: mapState({
-    events: (state) => state.works.events
+    works: (state) => state.works.works
   })
 }
 </script>

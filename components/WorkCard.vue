@@ -1,11 +1,11 @@
 <template>
-  <nuxt-link :to="'/work/' + event.id">
+  <nuxt-link :to="'/work/' + work.id">
     <div class="-shadow">
-      <span class="eyebrow"> @{{ event.time }} on {{ parsedDate }} </span>
+      <span class="eyebrow"> @{{ work.time }} on {{ parsedDate }} </span>
       <h4 class="title">
-        {{ event.title }}
+        {{ work.title }}
       </h4>
-      <span>{{ event.description }} attending</span>
+      <span>{{ work.description }} attending</span>
     </div>
   </nuxt-link>
 </template>
@@ -13,12 +13,12 @@
 export default {
   name: 'WorkCard',
   props: {
-    event: Object
+    work: Object
   },
   computed: {
     parsedDate() {
-      const eventDate = new Date(this.event.date)
-      return eventDate.toDateString()
+      const workDate = new Date(this.work.date)
+      return workDate.toDateString()
     }
   }
 }

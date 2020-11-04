@@ -1,25 +1,25 @@
 import WorkService from '~/services/WorkService.js'
 export const state = () => ({
-    events: [],
-    event: {}
+    works: [],
+    work: {}
 })
 export const mutations = {
-    SET_EVENTS(state, events) {
-        state.events = events
+    SET_WORKS(state, works) {
+        state.works = works
     },
-    SET_EVENT(state, event) {
-        state.event = event
+    SET_WORK(state, work) {
+        state.work = work
     }
 }
 export const actions = {
-    fetchEvents({ commit }) {
-        return WorkService.getEvents().then((response) => {
-            commit('SET_EVENTS', response.data)
+    fetchWorks({ commit }) {
+        return WorkService.getWorks().then((response) => {
+            commit('SET_WORKS', response.data)
         })
     },
-    fetchEvent({ commit }, id) {
-        return WorkService.getEvent(id).then((response) => {
-            commit('SET_EVENT', response.data)
+    fetchWork({ commit }, id) {
+        return WorkService.getWork(id).then((response) => {
+            commit('SET_WORK', response.data)
         })
     }
 }
