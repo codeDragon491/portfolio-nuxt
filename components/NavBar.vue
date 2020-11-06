@@ -89,6 +89,7 @@ export default {
 }
 .nav nav {
   font-size: 20px;
+  margin-right: 1rem;
 }
 .nav .nav-item {
   box-sizing: border-box;
@@ -101,9 +102,10 @@ export default {
 }
 .nav a {
   display: inline-block;
+   margin-left: 1rem;
 }
 #trigger {
-  visibility: hidden;
+  display: none;
   margin-top: 300px;
 }
 </style>
