@@ -11,7 +11,7 @@
         Profile
       </nuxt-link>
       <nuxt-link class="nav-item" to="/work">
-        Works
+        Work
       </nuxt-link>
       <nuxt-link class="nav-item" to="/">
         Contact

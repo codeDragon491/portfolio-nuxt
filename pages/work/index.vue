@@ -1,12 +1,14 @@
 <template>
   <div class="page">
-    <h1>Works</h1>
+    <h1>Work</h1>
+    <div class="work-list">
     <WorkCard
       v-for="(work, index) in works"
       :key="index"
       :work="work"
       :data-index="index"
     />
+    </div>
   </div>
 </template>
 <script>
@@ -15,7 +17,7 @@ import { mapState } from 'vuex'
 export default {
   head() {
     return {
-      title: 'Works',
+      title: 'Work',
       meta: [
         {
           hid: 'description',
@@ -41,3 +43,23 @@ export default {
   })
 }
 </script>
+<style scoped>
+.page {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 1024px){
+  .page {
+    width: 1006px;
+    /*width: calc(100% - 15rem);*/
+  }
+}
+h1{
+      align-self: center;
+}
+.work-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+</style>

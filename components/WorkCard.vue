@@ -1,11 +1,12 @@
 <template>
-  <nuxt-link :to="'/work/' + work.id">
-    <div class="-shadow">
-      <span class="eyebrow"> @{{ work.time }} on {{ parsedDate }} </span>
+  <nuxt-link class="work-card" :to="'/work/' + work.id">
+    <div class="shadow">
       <h4 class="title">
         {{ work.title }}
       </h4>
-      <span>{{ work.description }} attending</span>
+      <div class="work-cover">
+        <img :src="work.image">
+      </div>
     </div>
   </nuxt-link>
 </template>
@@ -24,19 +25,68 @@ export default {
 }
 </script>
 <style scoped>
-div {
-  padding: 20px;
-  margin-bottom: 24px;
+.work-card {
+  position: relative;
+  flex: 0 0 32%;
+  max-width: 32%;
+  height: 11rem;
+  margin-bottom: 1.25rem;
+} 
+.work-cover::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #ec833a, #d93337);
+    opacity: 0.5;
+    mix-blend-mode: hard-light;
+    transform: skew(15deg) translateX(-50%);
+    z-index: 10;
+}
+.work-cover{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.work-cover img {
+  height: 100%;
+}
+.title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  margin: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+}
+.title:after {    
+  content: "";
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+.shadow {
+  height: 100%;
   transition: all 0.2s linear;
   cursor: pointer;
 }
-div:hover {
+.shadow:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
 }
-.title {
-  margin: 0;
-  color: black;
+.shadow:hover .title:after{
+  width: 100%; 
+  left: 0; 
 }
 a {
   text-decoration: none;
