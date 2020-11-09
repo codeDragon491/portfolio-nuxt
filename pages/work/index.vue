@@ -54,7 +54,8 @@ export default {
     /*width: calc(100% - 15rem);*/
   }
 }
-h1{
+h1{   
+      margin-top: 0;
       align-self: center;
 }
 .work-list{
