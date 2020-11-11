@@ -4,16 +4,16 @@
       <img src="~/assets/SimpleStudio-transparent.png" />
     </nuxt-link>
     <nav>
-      <nuxt-link class="nav-item" to="/">
+      <nuxt-link :style="color" class="nav-item" to="/">
         Home
       </nuxt-link>
-      <nuxt-link class="nav-item" to="/profile">
+      <nuxt-link :style="color" class="nav-item" to="/profile">
         Profile
       </nuxt-link>
-      <nuxt-link class="nav-item" to="/work">
+      <nuxt-link :style="color" class="nav-item" to="/work">
         Work
       </nuxt-link>
-      <nuxt-link class="nav-item" to="/">
+      <nuxt-link :style="color" class="nav-item" to="/">
         Contact
       </nuxt-link>
     </nav>
@@ -65,7 +65,14 @@ export default {
       .setTween(brandTl0)
       //.addIndicators()
       .addTo(controller)
-  }
+  },
+   computed: {
+    color () {
+        if (this.$route.params.id) return 'color: white';
+        else return 'color: rgba(0, 0, 0, 0.8)';
+      }
+  },
+  
 }
 </script>
 <style scoped>

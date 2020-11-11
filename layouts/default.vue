@@ -12,7 +12,7 @@ export default {
   components: { NavBar },
   head() {
     return {
-      titleTemplate: '%s - Julia Trefas',
+      titleTemplate: '%s – Julia Trefas',
       meta: [
         {
           hid: 'description',
@@ -283,8 +283,11 @@ select::ms-expand {
   /*transform: translateX(-10px);*/
 }
 /***** pages *****/
+@media screen and (min-width: 1024px) {
 .page {
   width: 750px;
   margin: 150px auto;
 }
+}
+
 </style>

@@ -39,7 +39,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, #ec833a, #d93337);
+    background: linear-gradient(120deg, #ebebeb, #d93337);
     opacity: 0.5;
     mix-blend-mode: hard-light;
     transform: skew(15deg) translateX(-50%);
