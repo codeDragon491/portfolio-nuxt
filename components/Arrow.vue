@@ -7,8 +7,28 @@
 </template>
 <script>
 export default {
-  name: 'Arrow'
+  name: 'Arrow',
+    mounted (){
+    let controller = new this.$ScrollMagic.Controller()
+    let arrowTl1 = new this.$GSAP.TimelineLite()
+    let arrow = '.arrow'
+    arrowTl1.to(arrow, 0.5, {
+      opacity: 0,
+      ease: 'power1'
+    })
+
+    let arrowScene1 = new this.$ScrollMagic.Scene({
+      duration: 0,
+      offset: 150
+      //triggerElement: '#trigger',
+      //triggerHook: 0
+    })
+      .setTween(arrowTl1)
+      //.addIndicators()
+      .addTo(controller)
+  },
 }
+
 </script>
 <style scoped>
 .arrow {

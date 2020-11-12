@@ -10,32 +10,16 @@
     <main>
       <section class="work-section">
         <h2>Assignmnent</h2>
+        <p>{{work.assignment}}</p>
       </section>
     </main>
   </div>
 </template>
 <script>
-//import WorkService from '@/services/WorkService.js'
 import Arrow from '@/components/Arrow.vue';
 import { mapState } from 'vuex'
 export default {
-    components: { Arrow  },
-  /*async asyncData({ error, params }) {
-    // with promise
-    try {
-      const { data } = await WorkService.getEvent(params.id)
-
-      return {
-        event: data
-      }
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message:
-          'Unable to fetch event ' + params.id + '. Please try again later.'
-      })
-    }
-  },*/
+  components: { Arrow },
   async fetch({ store, params, error }) {
     try {
       await store.dispatch('works/fetchWork', params.id)
@@ -46,16 +30,14 @@ export default {
       })
     }
   },
-  /*computed: {
-    id() {
-      return this.$route.params.id
-    }
-  },*/
   computed: mapState({
     work: (state) => state.works.work,
     backgroundImage () {
         return 'background-image: ' + "url(" + this.work.backgroundImage + ")";
-      }
+      },
+    /*id() {
+      return this.$route.params.id
+    }*/
   }),
   head() {
     return {
@@ -131,5 +113,12 @@ export default {
 .work-section {
   margin: 7rem 0;
   padding: 0 65px;
+  h2, p {
+    width: 50%;
+    margin: 0 auto;
+  }
+  p {
+      font-size: 1.25rem;
+  }
 }
 </style>

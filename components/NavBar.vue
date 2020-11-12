@@ -23,7 +23,6 @@
 <script>
 export default {
   mounted() {
-    //window.addEventListener('scroll', this.handleScroll)
     /*gsap.from('.brand', {
       duration: 0.5,
       opacity: 0,
