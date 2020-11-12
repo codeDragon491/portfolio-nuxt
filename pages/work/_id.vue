@@ -71,26 +71,26 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss">
 .work-header {
   margin-top: 150px;
   height: calc(100vh - 150px);
   color: white;
-}
-h3 {
+  h3 {
   margin:  0 0 1.5rem 0;
-}
-h1 {
+  }
+  h1 {
   margin: 0 0 1rem 0; 
   text-transform: uppercase;
   font-size: 10vw;
   line-height: 10vw;
-}
-p {
+  }
+  p {
   margin: 0;
   font-size: 1.25rem;
   max-width: 56ch;
   line-height: 1.7;
+  }
 }
 .work-cover {
     position: absolute;
@@ -117,10 +117,10 @@ p {
 @media only screen and (min-width: 1024px){
   .work-header {
     margin: 150px auto;
-  }
-  h1 { 
+    h1 { 
     font-size: 50px;
     line-height: 50px; 
+  }
   }
 }
 @media only screen and (min-width: 1280px){
