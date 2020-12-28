@@ -2,13 +2,13 @@
     <div class="arrow">
         <span></span>
         <span></span>
-        <span></span> 
+        <span></span>
     </div>
 </template>
 <script>
 export default {
   name: 'Arrow',
-    mounted (){
+    mounted () {
     let controller = new this.$ScrollMagic.Controller()
     let arrowTl1 = new this.$GSAP.TimelineLite()
     let arrow = '.arrow'

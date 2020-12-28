@@ -30,9 +30,17 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@font-face {
+  font-family: 'Aileron-Regular';
+  src: url(/assets/fonts/aileron/Aileron-Regular.otf);
+}
+@font-face {
+  font-family: 'Peace Sans';
+  src: url(/assets/fonts/peace-sans/peace_sans.otf);
+}
 body {
   margin: 0;
-  font-family: 'Aileron-Regular', sans-serif;
+  font-family: 'Aileron-Regular', 'sans-serif';
   font-size: 16px;
   line-height: 1.5;
 }

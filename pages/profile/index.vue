@@ -6,14 +6,14 @@
         v-if="unzoomed"
         key="unzoomed"
         @click="toggleZoom"
-        src="~/assets/Julia Trefas.png"
+        src="~/assets/img/Julia Trefas.png"
       />
       <img
         class="resume_zoomed"
         v-if="zoomed"
         key="zoomed"
         @click="toggleZoom"
-        src="~/assets/Julia Trefas.png"
+        src="~/assets/img/Julia Trefas.png"
       />
     </transition>
   </div>

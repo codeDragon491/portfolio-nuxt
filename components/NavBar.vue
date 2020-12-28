@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <nuxt-link to="/" class="brand">
-      <img src="~/assets/SimpleStudio-transparent.png" />
+      <img src="~/assets/img/SimpleStudio-transparent.png" />
     </nuxt-link>
     <nav>
       <nuxt-link :style="color" class="nav-item" to="/">
