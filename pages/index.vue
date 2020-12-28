@@ -53,7 +53,7 @@ import define from 'https://api.observablehq.com/@codedragon491/voronoi-stipplin
 })*/
 
 //import WorkService from '@/services/WorkService.js'
-import * as d3 from 'd3'
+//import * as d3 from 'd3'
 export default {
   head() {
     return {

@@ -23,13 +23,6 @@
 <script>
 export default {
   mounted() {
-    /*gsap.from('.brand', {
-      duration: 0.5,
-      opacity: 0,
-      scale: 0,
-      rotation: 180,
-      ease: 'power1'
-    })*/
     let controller = new this.$ScrollMagic.Controller()
     let brandTl0 = new this.$GSAP.TimelineLite()
     let brandTl1 = new this.$GSAP.TimelineLite()

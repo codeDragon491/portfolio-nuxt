@@ -12,6 +12,10 @@
         <h2>Assignmnent</h2>
         <p>{{work.assignment}}</p>
       </section>
+      <section class="work-section">
+        <h2>Solution</h2>
+        <p>{{work.assignment}}</p>
+      </section>
     </main>
   </div>
 </template>
@@ -98,10 +102,10 @@ export default {
 }
 @media only screen and (min-width: 1024px){
   .work-header {
-    margin: 150px auto;
+    margin: 150px auto 0;
     h1 { 
-    font-size: 50px;
-    line-height: 50px; 
+    font-size: 60px;
+    line-height: 60px; 
   }
   }
 }
