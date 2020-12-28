@@ -64,14 +64,12 @@ export default {
         else return 'color: rgba(0, 0, 0, 0.8)';
       }
   },
-  
+
 }
 </script>
 <style scoped>
 .brand {
   width: 10%;
-  font-weight: 700;
-  font-size: 1.5em;
   text-decoration: none;
 }
 .nav {
@@ -82,7 +80,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 150px;
   z-index: 1;
   /*background: linear-gradient(#000000ff, #00000000);*/
 }
