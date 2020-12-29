@@ -54,7 +54,12 @@ export default {
     /*width: calc(100% - 15rem);*/
   }
 }
-h1 {   
+/*@media only screen and (min-width: 1920px){
+  .page {
+    width: 60%;
+  }
+}*/
+h1 {
     margin-top: 0;
     align-self: center;
 }

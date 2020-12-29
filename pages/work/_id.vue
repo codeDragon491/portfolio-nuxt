@@ -28,6 +28,23 @@
         <h2>Solution</h2>
         <p>{{work.assignment}}</p>
       </section>
+       <section id="summary-work-section" class="work-section">
+        <hr>
+        <div class="summary-line">
+          <h3>TECH</h3>
+          <p>tech comes here</p>
+        </div>
+        <hr>
+        <div class="summary-line">
+          <h3>YEAR</h3>
+          <p>year comes here</p>
+        </div>
+        <hr>
+         <div class="summary-line">
+          <h3>LINK</h3>
+          <p><a :href="work.href">see the solution here</a></p>
+        </div>
+      </section>
     </main>
   </div>
 </template>
@@ -98,19 +115,19 @@ export default {
     textSceneTl.to('#description', 1.5, {
       opacity: 1,
       ease: 'power1'
-    }, 0.5)
+    }, 1.5)
     .from('#description', 0.5, {
       y: 50,
       ease: 'power1'
-    }, 0.5, '-=1.5')
+    }, 1.5, '-=1.5')
     .to('#headline', 1.5, {
       opacity: 1,
       ease: 'power1'
-    }, 0)
+    }, 1)
     .from('#headline', 0.5, {
       y: 50,
       ease: 'power1'
-    }, 0, '-=1.5')
+    }, 1, '-=1.5')
     // all scene definitons
 
     // animate body when scroll to work sections
@@ -134,16 +151,21 @@ export default {
 
    let workSectionScene3 = new this.$ScrollMagic.Scene({
       duration: 0,
-      triggerElement: "#last-work-section",
+      triggerElement: "#summary-work-section",
       triggerHook: 1,
     })
    .setTween(workSectionTl3)
    .addTo(controller)
 
   //animate texts on the page
+  let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
+  matrixTitle.animate()
+  //setTimeout(function(){ matrixTitle.animate()}, 1000)
 
-  let explodeTitle = $("#title").splitText({'type':'letters','animation':'matrix'});
-  explodeTitle.animate();
+
+  /*this.$GSAP.TweenMax.delayedCall(1, function() {
+		matrixTitle.animate();
+  });*/
 
   let textScene = new this.$ScrollMagic.Scene({
     duration: 0,
@@ -159,6 +181,8 @@ export default {
 main {
   position: absolute;
   left: 0;
+  right: 0;
+  width: 100%;
   background-color:black;
   color:white;
 }
@@ -166,7 +190,7 @@ main {
   margin-top: 150px;
   height: calc(100vh - 150px);
   color: white;
-  h3 {
+  h3#title {
   opacity: 0;
   margin: 0 0 1.5rem 0;
   }
@@ -193,6 +217,7 @@ main {
     position: absolute;
     background-size: cover;
     left: 0;
+    right: 0;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -204,12 +229,18 @@ main {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(120deg, #313131, #090909);
     mix-blend-mode: hard-light;
     opacity: 0.5;
     z-index: 10;
+}
+.summary-line{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 @media only screen and (min-width: 1024px){
   .work-header {
@@ -225,6 +256,14 @@ main {
     width: 70%;
   }
 }
+@media only screen and (min-width: 1920px){
+  .work-header {
+    margin: 250px auto 0;
+      p {
+        max-width: 65ch;
+      }
+  }
+}
 .work-section {
   margin: 7rem 0;
   padding: 0 65px;
@@ -234,6 +273,18 @@ main {
   }
   p {
       font-size: 1.25rem;
+  }
+}
+#summary-work-section {
+  padding: 0 165px;
+  p {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    width: auto;
+    margin: 0;
+    a {
+      color: white;
+    }
   }
 }
 </style>

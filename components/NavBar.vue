@@ -69,7 +69,7 @@ export default {
 </script>
 <style scoped>
 .brand {
-  width: 10%;
+  width: 45%;
   text-decoration: none;
 }
 .nav {
@@ -103,5 +103,20 @@ export default {
 #trigger {
   display: none;
   margin-top: 300px;
+}
+@media screen and (min-width: 768px) {
+  .brand {
+    width: 20%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .brand {
+    width: 10%;
+  }
+}
+@media only screen and (min-width: 1920px){
+  .brand {
+    width: 8%;
+  }
 }
 </style>
