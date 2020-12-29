@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 export default {
     mode: 'universal',
     /*
@@ -35,6 +36,10 @@ export default {
         {
             src: '~/plugins/gsap-scrollmagic.js',
             ssr: false
+        },
+        {
+            src: '~/plugins/split-text-plugin.js',
+            ssr: false
         }
     ],
     /*
@@ -64,6 +69,13 @@ export default {
         /*
          ** You can extend webpack config here
          */
+        plugins: [
+          new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
+          })
+        ],
         extend(config, { loaders: { vue } }) {
             console.log(vue)
 

@@ -1,8 +1,8 @@
 <template>
   <div class="#">
     <header class="work-header">
-      <h3>{{work.title}}</h3>
-      <h1>{{work.headline}}</h1>
+      <h3 id="title">{{work.title}}</h3>
+      <h1 id="headline">{{work.headline}}</h1>
       <p id="description">{{work.description}}</p>
       <Arrow/>
       <div :style="backgroundImage" class="work-cover"></div>
@@ -80,14 +80,10 @@ export default {
     workSectionTl1.to(main, 0.5, {
       backgroundColor: 'white',
       color: 'black',
-      ease: 'power1',
+      ease: 'power1'
     })
 
-    workSectionTl2.fromTo(main, 0.5, {
-      backgroundColor: 'black',
-      color: 'white',
-      ease: 'power1',
-    }, {
+    workSectionTl2.to(main, 0.5, {
       backgroundColor: 'white',
       color: 'black',
       ease: 'power1',
@@ -102,11 +98,19 @@ export default {
     textSceneTl.to('#description', 1.5, {
       opacity: 1,
       ease: 'power1'
-    })
+    }, 0.5)
     .from('#description', 0.5, {
       y: 50,
       ease: 'power1'
-    }, '-=1.5')
+    }, 0.5, '-=1.5')
+    .to('#headline', 1.5, {
+      opacity: 1,
+      ease: 'power1'
+    }, 0)
+    .from('#headline', 0.5, {
+      y: 50,
+      ease: 'power1'
+    }, 0, '-=1.5')
     // all scene definitons
 
     // animate body when scroll to work sections
@@ -137,13 +141,17 @@ export default {
    .addTo(controller)
 
   //animate texts on the page
-   let textScene = new this.$ScrollMagic.Scene({
-      duration: 0,
-      offset: 0,
-    })
-   .setTween(textSceneTl)
-   .addTo(controller)
-  },
+
+  let explodeTitle = $("#title").splitText({'type':'letters','animation':'matrix'});
+  explodeTitle.animate();
+
+  let textScene = new this.$ScrollMagic.Scene({
+    duration: 0,
+    offset: 0,
+  })
+  .setTween(textSceneTl)
+  .addTo(controller)
+},
 
 }
 </script>
@@ -152,16 +160,22 @@ main {
   position: absolute;
   left: 0;
   background-color:black;
-  color:black;
+  color:white;
 }
 .work-header {
   margin-top: 150px;
   height: calc(100vh - 150px);
   color: white;
   h3 {
-  margin:  0 0 1.5rem 0;
+  opacity: 0;
+  margin: 0 0 1.5rem 0;
+  }
+  h3.isSplit {
+  opacity: 1;
+  margin: 0 0 3.5rem 0;
   }
   h1 {
+  opacity: 0;
   margin: 0 0 1rem 0;
   text-transform: uppercase;
   font-size: 10vw;
