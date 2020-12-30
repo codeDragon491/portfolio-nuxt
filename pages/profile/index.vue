@@ -1,6 +1,5 @@
 <template>
   <div class="page">
-    <transition name="fade">
       <img
         class="resume_unzoomed"
         v-if="unzoomed"
@@ -15,7 +14,6 @@
         @click="toggleZoom"
         src="~/assets/img/Julia Trefas.png"
       />
-    </transition>
   </div>
 </template>
 <script>
@@ -38,6 +36,28 @@ export default {
       zoomed: false
     }
   },
+  mounted(){
+    // animate work list
+    let controller = new this.$ScrollMagic.Controller()
+
+    let resumeTl = new this.$GSAP.TimelineLite()
+
+    resumeTl.to('.resume_unzoomed', 1.5, {
+      opacity: 1,
+      ease: 'power1'
+    }, 0.5)
+    .from('.resume_unzoomed', 1.5, {
+      y: 50,
+      ease: 'power1'
+    }, 0.5, '-=1.5')
+
+  let resumeScene = new this.$ScrollMagic.Scene({
+    duration: 0,
+    offset: 0,
+  })
+  .setTween(resumeTl)
+  .addTo(controller)
+  },
   methods: {
     toggleZoom() {
       this.unzoomed = !this.unzoomed
@@ -54,6 +74,7 @@ export default {
   cursor: pointer;
 }
 .resume_unzoomed {
+  opacity: 0;
   cursor: pointer;
 }
 </style>

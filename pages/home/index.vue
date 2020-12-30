@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <h1>Hello! This is Simple Studio.</h1>
+    <h1 id="title">Hello! This is Simple Studio.</h1>
     <transition name="fade" mode="out-in">
       <div v-if="!textShown" @mouseover="toggleText" id="observablehq-786759ef">
         <div class="observablehq-script"></div>
@@ -95,6 +95,12 @@ export default {
       textShown: false
     }
   },
+  mounted(){
+    setTimeout(function(){
+    let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
+    matrixTitle.animate()
+    }, 1000)
+  },
   methods: {
     toggleText() {
       this.textShown = !this.textShown
@@ -102,3 +108,15 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+h1#title {
+  color: black;
+  opacity: 0;
+}
+h1.isSplit {
+  .letter-measure{
+    color: black !important;
+  }
+  opacity: 1;
+}
+</style>

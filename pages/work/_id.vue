@@ -90,7 +90,7 @@ export default {
     let workSectionTl1 = new this.$GSAP.TimelineLite()
     let workSectionTl2 = new this.$GSAP.TimelineLite()
     let workSectionTl3 = new this.$GSAP.TimelineLite()
-    let textSceneTl = new this.$GSAP.TimelineLite()
+    let textTl = new this.$GSAP.TimelineLite()
 
     //  all gsap animations
     let main = 'main'
@@ -112,7 +112,7 @@ export default {
       ease: 'power1'
     })
 
-    textSceneTl.to('#description', 1.5, {
+    textTl.to('#description', 1.5, {
       opacity: 1,
       ease: 'power1'
     }, 1.5)
@@ -128,8 +128,8 @@ export default {
       y: 50,
       ease: 'power1'
     }, 1, '-=1.5')
-    // all scene definitons
 
+    // all scene definitons
     // animate body when scroll to work sections
     let workSectionScene1 = new this.$ScrollMagic.Scene({
       duration: 0,
@@ -158,10 +158,10 @@ export default {
    .addTo(controller)
 
   //animate texts on the page
-  let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
-  matrixTitle.animate()
-  //setTimeout(function(){ matrixTitle.animate()}, 1000)
-
+   setTimeout(function(){
+    let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
+    matrixTitle.animate()
+    }, 1000)
 
   /*this.$GSAP.TweenMax.delayedCall(1, function() {
 		matrixTitle.animate();
@@ -171,10 +171,9 @@ export default {
     duration: 0,
     offset: 0,
   })
-  .setTween(textSceneTl)
+  .setTween(textTl)
   .addTo(controller)
-},
-
+}
 }
 </script>
 <style lang="scss">
@@ -258,6 +257,7 @@ main {
 }
 @media only screen and (min-width: 1920px){
   .work-header {
+    height: calc(100vh - 250px);
     margin: 250px auto 0;
       p {
         max-width: 65ch;

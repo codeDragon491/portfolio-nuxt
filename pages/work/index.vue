@@ -1,13 +1,13 @@
 <template>
   <div class="page">
-    <h1>Work</h1>
+    <h1 id="title">Work</h1>
     <div class="work-list">
-    <WorkCard
+      <WorkCard
       v-for="(work, index) in works"
       :key="index"
       :work="work"
       :data-index="index"
-    />
+      />
     </div>
   </div>
 </template>
@@ -27,6 +27,34 @@ export default {
       ]
     }
   },
+  mounted(){
+    //animate texts on the page
+    setTimeout(function(){
+    let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
+    matrixTitle.animate()
+    }, 1000)
+
+    // animate work list
+    let controller = new this.$ScrollMagic.Controller()
+
+    let workListTl = new this.$GSAP.TimelineLite()
+
+    workListTl.to('.work-list', 1.5, {
+      opacity: 1,
+      ease: 'power1'
+    }, 1.5)
+    .from('.work-list', 1.5, {
+      y: 50,
+      ease: 'power1'
+    }, 1.5, '-=1.5')
+
+  let workListScene = new this.$ScrollMagic.Scene({
+    duration: 0,
+    offset: 0,
+  })
+  .setTween(workListTl)
+  .addTo(controller)
+  },
   async fetch({ store, error }) {
     try {
       await store.dispatch('works/fetchWorks')
@@ -43,7 +71,7 @@ export default {
   })
 }
 </script>
-<style scoped>
+<style lang="scss">
 .page {
   display: flex;
   flex-direction: column;
@@ -67,5 +95,17 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  opacity: 0;
+  margin-top: 5rem;
+}
+h1#title {
+  color: black;
+  opacity: 0;
+}
+h1.isSplit {
+  .letter-measure{
+    color: black !important;
+  }
+  opacity: 1;
 }
 </style>
