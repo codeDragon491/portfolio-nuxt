@@ -57,7 +57,7 @@ import define from 'https://api.observablehq.com/@codedragon491/voronoi-stipplin
 export default {
   head() {
     return {
-      title: 'Profile'
+      title: 'Home'
     }
   },
   /* asyncData({ $axios, error }) {
@@ -95,11 +95,20 @@ export default {
       textShown: false
     }
   },
-  mounted(){
-    setTimeout(function(){
+  props: {
+    navbarHasMounted: Boolean
+  },
+  mounted() {
+    if (this.navbarHasMounted === true) {
+      let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
+      matrixTitle.animate()
+      console.log("no timeout", this.navbarHasMounted)
+    } else {
+      console.log("in timeout", this.navbarHasMounted)
+
     let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
     matrixTitle.animate()
-    }, 1000)
+    }
   },
   methods: {
     toggleText() {

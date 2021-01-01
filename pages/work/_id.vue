@@ -26,18 +26,27 @@
       </section>
       <section id="last-work-section" class="work-section">
         <h2>Solution</h2>
-        <p>{{work.assignment}}</p>
+        <p>{{work.result}}</p>
       </section>
        <section id="summary-work-section" class="work-section">
+         <div class="summary-line">
+          <h3>SOLUTION</h3>
+          <p>{{work.solution}}</p>
+        </div>
+        <hr>
+         <div class="summary-line">
+          <h3>SKILLS</h3>
+          <p v-html="work.skills"></p>
+        </div>
         <hr>
         <div class="summary-line">
           <h3>TECH</h3>
-          <p>tech comes here</p>
+          <p>{{work.tech}}</p>
         </div>
         <hr>
         <div class="summary-line">
           <h3>YEAR</h3>
-          <p>year comes here</p>
+          <p>{{work.year}}</p>
         </div>
         <hr>
          <div class="summary-line">
@@ -158,10 +167,8 @@ export default {
    .addTo(controller)
 
   //animate texts on the page
-   setTimeout(function(){
     let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
     matrixTitle.animate()
-    }, 1000)
 
   /*this.$GSAP.TweenMax.delayedCall(1, function() {
 		matrixTitle.animate();
@@ -240,6 +247,9 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  p {
+    text-align: right;
+  }
 }
 @media only screen and (min-width: 1024px){
   .work-header {

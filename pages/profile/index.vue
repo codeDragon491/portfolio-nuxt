@@ -45,11 +45,11 @@ export default {
     resumeTl.to('.resume_unzoomed', 1.5, {
       opacity: 1,
       ease: 'power1'
-    }, 0.5)
+    },)
     .from('.resume_unzoomed', 1.5, {
       y: 50,
       ease: 'power1'
-    }, 0.5, '-=1.5')
+    }, '-=1.5')
 
   let resumeScene = new this.$ScrollMagic.Scene({
     duration: 0,

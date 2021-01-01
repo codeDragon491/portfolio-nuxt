@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <nav-bar />
+    <nav-bar @hook:created="navbarHasMounted = true"/>
     <transition name="slide-fade" mode="out-in" appear>
-      <nuxt />
+      <nuxt :navbarHasMounted="navbarHasMounted" />
     </transition>
   </div>
 </template>
@@ -20,6 +20,10 @@ export default {
           content: "Where you can read about Julia's professional profile"
         }
       ]
+    }
+  },
+  data() { return {
+    navbarHasMounted: false
     }
   }
 }
