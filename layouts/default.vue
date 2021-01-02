@@ -50,7 +50,7 @@ body {
 }
 #app {
   box-sizing: border-box;
-  padding: 0 20px 20px;
+  padding: 0 1rem 1rem;
 }
 hr {
   box-sizing: content-box;
@@ -293,6 +293,10 @@ select::ms-expand {
 .slide-fade-leave-to {
   opacity: 0;
   /*transform: translateX(-10px);*/
+}
+/***** mobile ****/
+.page {
+  margin: 150px auto;
 }
 /***** pages *****/
 @media screen and (min-width: 1024px) {
