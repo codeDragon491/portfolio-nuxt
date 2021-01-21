@@ -1,6 +1,10 @@
 const webpack = require('webpack')
 export default {
     mode: 'universal',
+    target: 'static',
+    router: {
+        base: '/portfolio-nuxt/'
+    },
     /*
      ** Headers of the page
      */
@@ -70,11 +74,11 @@ export default {
          ** You can extend webpack config here
          */
         plugins: [
-          new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-          })
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery',
+                'window.jQuery': 'jquery'
+            })
         ],
         extend(config, { loaders: { vue } }) {
             console.log(vue)
