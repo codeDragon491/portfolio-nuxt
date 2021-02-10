@@ -70,6 +70,7 @@ export default {
 <style scoped>
 .brand {
   width: 45%;
+  max-width: 150px;
   text-decoration: none;
 }
 .nav {

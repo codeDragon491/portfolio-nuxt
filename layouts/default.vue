@@ -52,6 +52,11 @@ body {
   box-sizing: border-box;
   padding: 0 1rem 1rem;
 }
+@media screen and (min-width: 768px) {
+  #app {
+  padding: 0 1.25rem 1.25rem;
+}
+}
 hr {
   box-sizing: content-box;
   height: 0;
@@ -301,7 +306,7 @@ select::ms-expand {
 /***** pages *****/
 @media screen and (min-width: 1024px) {
 .page {
-  width: 750px;
+  max-width: 750px;
   margin: 150px auto;
 }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <h1 id="title">Work</h1>
+    <!--<h1 id="title">Work</h1>-->
     <div class="work-list">
       <WorkCard
       v-for="(work, index) in works"
@@ -73,12 +73,19 @@ export default {
 </script>
 <style lang="scss">
 .page {
+  max-width: 750px;
   display: flex;
   flex-direction: column;
 }
 @media only screen and (min-width: 1024px){
   .page {
-    width: 1006px;
+    max-width: 984px;
+    /*width: calc(100% - 15rem);*/
+  }
+}
+@media only screen and (min-width: 1228px){
+  .page {
+    max-width: 1006px;
     /*width: calc(100% - 15rem);*/
   }
 }

@@ -1,11 +1,16 @@
 <template>
-  <nuxt-link class="work-card" :to="'/work/' + work.id">
+  <nuxt-link ref="workCard" class="work-card" :to="'/work/' + work.id">
+  <style>
+    :root {
+      --image-height: {{ imageHeight - 27 + 'px' }};
+    }
+  </style>
     <div class="shadow">
       <h4 class="title">
         {{ work.title }}
       </h4>
       <div class="work-cover">
-        <img :src="work.image">
+        <img ref="workCoverImage" :src="work.image">
       </div>
     </div>
   </nuxt-link>
@@ -16,10 +21,22 @@ export default {
   props: {
     work: Object
   },
+  data(){ return {
+    imageHeight: null
+  }
+  },
   computed: {
     parsedDate() {
       const workDate = new Date(this.work.date)
       return workDate.toDateString()
+    }
+  },
+  methods: {
+    heightWorkCoverImage (event) {
+      let image = event.target;
+      this.imageHeight = image.clientHeight;
+      console.log(this.imageHeight)
+      //this.$refs.workCardImage.clientHeight;
     }
   }
 }
@@ -30,17 +47,32 @@ export default {
   height: 11rem;
   margin-bottom: 1.25rem;
 }
+.work-cover img {
+  height: 100%;
+}
 @media screen and (min-width: 414px) {
   .work-card {
-  height: 13rem;
-}
+    height: var(--image-height);
+  }
+  .work-cover img {
+    height: auto;
+  }
 }
 @media screen and (min-width: 768px) {
   .work-card {
+    height: 12rem;
+    flex: 0 0 48.5%;
+  }
+  .work-cover img {
+    height: 100%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .work-card {
+  height: 11rem;
   flex: 0 0 32%;
   max-width: 32%;
-}
-
+  }
 }
 .work-cover::after{
     content: "";
@@ -61,9 +93,6 @@ export default {
     top: 0;
     height: 100%;
     overflow: hidden;
-}
-.work-cover img {
-  height: 100%;
 }
 .title {
   position: absolute;
