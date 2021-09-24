@@ -36,7 +36,7 @@ html {
 }
 body {
   margin: 0;
-  font-family: 'Aileron-Regular', 'sans-serif';
+  font-family: 'Aileron Regular', 'sans-serif';
   font-size: 16px;
   line-height: 1.5;
 }

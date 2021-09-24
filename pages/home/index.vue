@@ -2,13 +2,11 @@
   <div class="page">
     <h1 id="title">Hello! This is Simple Studio.</h1>
     <transition name="fade" mode="out-in">
-      <div v-if="!textShown" @mouseover="toggleText" id="observablehq-786759ef">
-        <div class="observablehq-script"></div>
-        <div class="observablehq-data"></div>
-        <div class="observablehq-n"></div>
-        <div class="observablehq-height"></div>
+      <div @mouseover="toggleText" class="home-intro">
+       <iframe width="100%" height="1030" frameborder="0"
+        src="https://observablehq.com/embed/@codedragon491/voronoi-stippling/4?cells=image"></iframe>
       </div>
-      <div v-if="textShown" @mouseleave="toggleText">
+      <div v-if="textShown" @mouseleave="toggleText" class="home-intro">
         <p>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -128,4 +126,40 @@ h1.isSplit {
   }
   opacity: 1;
 }
+.home-intro {
+  margin-top: 100px;
+}
+footer {
+  display: none;
+}
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
