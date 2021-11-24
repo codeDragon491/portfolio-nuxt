@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 export default {
     ssr: false,
-    target: 'static',
+    mode: 'spa',
     router: {
         base: '/portfolio-nuxt/'
     },

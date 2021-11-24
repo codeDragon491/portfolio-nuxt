@@ -1,10 +1,10 @@
 <template>
   <div class="nav">
-    <nuxt-link to="/home" class="brand">
+    <nuxt-link to="/" class="brand">
       <img src="~/assets/img/SimpleStudio-transparent.png" />
     </nuxt-link>
     <nav>
-      <nuxt-link :style="color" class="nav-item" to="/home">
+      <nuxt-link :style="color" class="nav-item" to="/">
         Home
       </nuxt-link>
       <nuxt-link :style="color" class="nav-item" to="/profile">
@@ -13,7 +13,7 @@
       <nuxt-link :style="color" class="nav-item" to="/work">
         Work
       </nuxt-link>
-      <nuxt-link :style="color" class="nav-item" to="/home">
+      <nuxt-link :style="color" class="nav-item" to="/">
         Contact
       </nuxt-link>
     </nav>
