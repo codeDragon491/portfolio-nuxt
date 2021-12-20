@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <transition name="fade" mode="out-in">
       <img
         class="resume_unzoomed"
         v-if="unzoomed"
@@ -14,6 +15,7 @@
         @click="toggleZoom"
         src="~/assets/img/Julia Trefas.png"
       />
+    </transition>
   </div>
 </template>
 <script>

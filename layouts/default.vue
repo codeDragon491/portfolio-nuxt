@@ -269,12 +269,13 @@ select::ms-expand {
 /******* animations ******/
 .fade-enter, .fade-leave-to  {
   opacity: 0;
+  visibility: hidden;
 }
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.3s ease;
 }
-.slide-fade-enter {
+.slide-fade-enter, .slide-fade-leave-to {
   opacity: 0;
   /*transform: translateX(10px);*/
 }
@@ -282,11 +283,6 @@ select::ms-expand {
 .slide-fade-enter-active,
 .slide-fade-leave-active {
   transition: opacity 0.2s ease;
-}
-
-.slide-fade-leave-to {
-  opacity: 0;
-  /*transform: translateX(-10px);*/
 }
 /***** mobile ****/
 .page {
