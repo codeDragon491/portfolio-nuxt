@@ -36,17 +36,14 @@ export default {
       zoomed: false
     }
   },
-  mounted(){
+  mounted() {
     // animate work list
     let controller = new this.$ScrollMagic.Controller()
 
     let resumeTl = new this.$GSAP.TimelineLite()
 
-    resumeTl.to('.resume_unzoomed', 1.5, {
-      opacity: 1,
-      ease: 'power1'
-    },)
-    .from('.resume_unzoomed', 1.5, {
+    resumeTl.from('.resume_unzoomed', 1.5, {
+      opacity: 0,
       y: 50,
       ease: 'power1'
     }, '-=1.5')
@@ -74,7 +71,6 @@ export default {
   cursor: pointer;
 }
 .resume_unzoomed {
-  opacity: 0;
   cursor: pointer;
 }
 </style>

@@ -1,10 +1,10 @@
 const webpack = require('webpack')
 export default {
     ssr: false,
-    mode: 'spa',
-    router: {
-        base: '/portfolio-nuxt/'
-    },
+    target: 'static',
+    /* router: {
+        base: '/codedragon491.github.io/'
+    },*/
     /*
      ** Headers of the page
      */
@@ -83,13 +83,12 @@ export default {
             })
         ],
         extend(config, { loaders: { vue } }) {
-            console.log(vue)
 
             vue.transformAssetUrls.embed = ['src', 'poster']
 
             config.module.rules.push({
                 test: /\ .bin/,
-                include: '/node_modules/@codedragon491/voronoi-stippling/1d00cdef5021dcfa@399.js',
+                include: '/node_modules/@voronoi-stippling/6c38a28793cfac80@400.js',
                 loader: 'vue-loader'
             })
         }

@@ -81,7 +81,7 @@
 
 		//// SET ANIMATION TYPE ///
 
-		console.log(options.type);
+		// console.log(options.type);
 		if(options.type=='lines'){
 
 			var result = splitWords(userInput);
@@ -210,7 +210,7 @@
 			 	 textAcc.push({ 'text' : sentencesArr[i] });
 			 }
 
-			 console.log(words);
+			 // console.log(words);
 
 			 textAcc = new Array();
 
@@ -323,7 +323,7 @@
 
 			 		 item = $(this);
 			 		 duration = Math.max(0.5, item.length * 0.08);
-			 		 console.log(duration);
+			 		 // console.log(duration);
 
 			 		 var isSentenceEnd = item.hasClass('endOfSentence');
 			 		 if (isSentenceEnd) {
@@ -386,7 +386,7 @@
 			         	if(options.animation == 'explode'){
 			         		pos  = item.position();
 			         		item.css({'left':pos.left,'top':pos.top});
-			         		//console.log(pos.left,pos.top);
+			         		// console.log(pos.left,pos.top);
 						}
 
 				        TMax.insert(TweenMax.to(item, options.duration, getAnimation(options)));

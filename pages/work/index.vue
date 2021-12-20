@@ -103,7 +103,6 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   opacity: 0;
-  margin-top: 4rem;
 }
 @media screen and (min-width: 768px){
   .work-list {

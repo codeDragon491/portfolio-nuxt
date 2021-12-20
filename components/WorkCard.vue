@@ -35,7 +35,7 @@ export default {
     heightWorkCoverImage (event) {
       let image = event.target;
       this.imageHeight = image.clientHeight;
-      console.log(this.imageHeight)
+      // console.log(this.imageHeight)
       //this.$refs.workCardImage.clientHeight;
     }
   }

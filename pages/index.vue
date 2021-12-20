@@ -2,44 +2,29 @@
   <div class="page">
     <h1 id="title">Hello! This is Simple Studio.</h1>
     <transition name="fade" mode="out-in">
-      <div @mouseover="toggleText" class="home-intro">
-       <iframe width="100%" height="1030" frameborder="0"
-        src="https://observablehq.com/embed/@codedragon491/voronoi-stippling/4?cells=image"></iframe>
+      <div v-if="!textShown" key="1" @mouseover="toggleText" class="home-intro">
+        <img class="julia-voronoi-stippling" alt="julia-voronoi-stippling" src="~/assets/img/julia-voronoi-stippling.png">
       </div>
-      <div v-if="textShown" @mouseleave="toggleText" class="home-intro">
+      <div v-else key="2" @mouseleave="toggleText" class="home-intro">
         <p>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum."
+          I am a versatile frontend developer with a design sense who enjoys working with many different aspects of frontend development,
+          such as the UI and App layer, performance optimization, responsive design, cross-browser compatibility, animations, and overall
+          is passionate about problem-solving while bringing designs to life or turning business requirements into excellent technical solutions. 
+          <br><br>
+          I have worked with most of the popular Javascript frameworks but my favorite is Vue.
+          <br><br>
+          I strive for quality and maintainability in the work I do, and I am the kind of developer that cares greatly about delivering a result that respects the intentions of a design team.
+          <br><br>
+          Eventually, I am very enthusiastic about frontend development and always looking to progress.
         </p>
       </div>
     </transition>
   </div>
 </template>
 <script>
-//import { Runtime, Inspector } from '@observablehq/runtime'
-//import define from '@codedragon491/voronoi-stippling/index.js'
-//const runtime = new Runtime()
-//const main = runtime.module(define, Inspector.into(document.body))
-//const main = runtime.module(define)
-/*const main = runtime.module(define, (name) => {
-  console.log('name')
-  if (name === 'chart') {
-    return new Inspector(
-      document.body.appendChild(document.createElement('DIV'))
-    )
-  }
-})*/
-/*import {
-  Runtime,
-  Inspector
-} from 'https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js'
-import define from 'https://api.observablehq.com/@codedragon491/voronoi-stippling.js?v=3'*/
-/*new Runtime().module(define, (name) => {
+/* import {Runtime, Inspector} from "@observablehq/runtime";
+import define from 'https://api.observablehq.com/d/6c38a28793cfac80@400.tgz?v=3'
+new Runtime().module(define, (name) => {
   if (name === 'script')
     return Inspector.into('#observablehq-786759ef .observablehq-script')()
   if (name === 'data')
@@ -48,10 +33,7 @@ import define from 'https://api.observablehq.com/@codedragon491/voronoi-stipplin
     return Inspector.into('#observablehq-786759ef .observablehq-n')()
   if (name === 'height')
     return Inspector.into('#observablehq-786759ef .observablehq-height')()
-})*/
-
-//import WorkService from '@/services/WorkService.js'
-//import * as d3 from 'd3'
+}) */
 export default {
   head() {
     return {
@@ -100,13 +82,29 @@ export default {
     if (this.navbarHasMounted === true) {
       let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
       matrixTitle.animate()
-      console.log("no timeout", this.navbarHasMounted)
+      // console.log("no timeout", this.navbarHasMounted)
     } else {
-      console.log("in timeout", this.navbarHasMounted)
+      // console.log("in timeout", this.navbarHasMounted)
 
     let matrixTitle = $("#title").splitText({'type':'letters','animation':'matrix'})
     matrixTitle.animate()
     }
+     // animate intro image
+    let controller = new this.$ScrollMagic.Controller()
+
+    let resumeTl = new this.$GSAP.TimelineLite()
+
+    resumeTl.from('.julia-voronoi-stippling', 1.5, {
+      opacity: 0,
+      y: 50,
+      ease: 'power1'
+    }, '-=1.5')
+    let resumeScene = new this.$ScrollMagic.Scene({
+    duration: 0,
+    offset: 0,
+    })
+    .setTween(resumeTl)
+    .addTo(controller)
   },
   methods: {
     toggleText() {
@@ -121,16 +119,25 @@ h1#title {
   opacity: 0;
 }
 h1.isSplit {
+  display: none;
   .letter-measure{
     color: black !important;
   }
   opacity: 1;
 }
-.home-intro {
-  margin-top: 100px;
+.home-intro p {
+  font-size: 1.25em;
 }
-footer {
-  display: none;
+@media screen and (min-width: 768px) {
+  .home-intro {
+    margin-top: 100px;
+  }
+  h1.isSplit {
+    display: flex;
+  }
+  .home-intro p {
+    font-size: 1.5em;
+  }
 }
 </style>
 

@@ -267,15 +267,12 @@ select::ms-expand {
   color: red;
 }
 /******* animations ******/
-.fade-enter {
+.fade-enter, .fade-leave-to  {
   opacity: 0;
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease-out;
-}
-.fade-leave-to {
-  opacity: 0;
+  transition: all 0.3s ease;
 }
 .slide-fade-enter {
   opacity: 0;

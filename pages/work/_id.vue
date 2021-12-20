@@ -11,17 +11,7 @@
       <section class="work-section">
         <h2>Assignmnent</h2>
         <p>{{work.assignment}}</p>
-      </section>
-       <section class="work-section">
-        <h2>Assignmnent</h2>
         <p>{{work.assignment}}</p>
-      </section>
-       <section class="work-section">
-        <h2>Assignmnent</h2>
-        <p>{{work.assignment}}</p>
-      </section>
-       <section class="work-section">
-        <h2>Assignmnent</h2>
         <p>{{work.assignment}}</p>
       </section>
       <section id="last-work-section" class="work-section">

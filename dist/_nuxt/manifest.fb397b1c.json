@@ -1,0 +1,10 @@
+{
+  "name": "my-new-website",
+  "short_name": "my-new-website",
+  "description": "My shining Nuxt.js project",
+  "icons": [],
+  "start_url": "/?standalone=true",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "lang": "en"
+}
