@@ -13,7 +13,7 @@
       <nuxt-link :style="color" class="nav-item" to="/work">
         Work
       </nuxt-link>
-      <nuxt-link :style="color" class="nav-item" to="/">
+      <nuxt-link :style="color" class="nav-item" to="/contact">
         Contact
       </nuxt-link>
     </nav>

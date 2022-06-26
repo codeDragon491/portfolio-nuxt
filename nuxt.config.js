@@ -31,9 +31,11 @@ export default {
     /*
      ** Global CSS
      */
-    css: [
-        '~/assets/css/main.scss'
-    ],
+  css: ['~/assets/scss/main.scss'],
+  modules: ['@nuxtjs/style-resources'],
+  styleResources: {
+    scss: ['./assets/scss/abstracts/variables.scss']
+  },
     /*
      ** Plugins to load before mounting the App
      */
@@ -92,5 +94,13 @@ export default {
                 loader: 'vue-loader'
             })
         }
-    }
+    },
+  chainWebpack: (config) => {
+        // GraphQL Loader
+        config.module
+          .rule('vue')
+          .use('vue-svg-inline-loader')
+          .loader('vue-svg-inline-loader')
+          .end()
+      }
 }

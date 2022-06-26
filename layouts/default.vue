@@ -286,6 +286,8 @@ select::ms-expand {
 }
 /***** mobile ****/
 .page {
+  display: flex;
+  justify-content: center;
   margin: 150px auto;
 }
 /***** pages *****/

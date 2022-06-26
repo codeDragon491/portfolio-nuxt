@@ -1,0 +1,12 @@
+$stroke: black;
+$surrounding: white;
+
+$square-size: 220px;
+$stroke-size: 2px;
+$size: $square-size + $stroke-size;
+$fraction: calc($stroke-size / $size);
+
+@function square($x, $y, $color:$surrounding) {
+    @return $x*$size $y*$size 0 $stroke-size $color;
+}
+  
