@@ -2,7 +2,7 @@
   <div class="page">
     <transition name="fade" mode="out-in">
       <img
-        class="resume_unzoomed"
+        class="resume_unzoomed shadow"
         v-if="unzoomed"
         key="unzoomed"
         @click="toggleZoom"

@@ -41,7 +41,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 .work-card {
   position: relative;
   height: 11rem;
