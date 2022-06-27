@@ -67,7 +67,7 @@ export default {
 
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .brand {
   width: 45%;
   max-width: 150px;
@@ -93,9 +93,13 @@ export default {
   margin: 0 12px;
   color: rgba(0, 0, 0, 0.8);
   text-decoration: none;
+  &:hover {
+    color: rgba(0, 0, 0, 0.6) !important;
+  }
 }
-.nav .nav-item.router-link-exact-active {
-  border-bottom: solid 2px inherit;
+.nav .nav-item.nuxt-link-exact-active {
+  //border-bottom: solid 2px black;
+  color: rgba(0, 0, 0, 0.5) !important;
 }
 .nav a {
   display: inline-block;
