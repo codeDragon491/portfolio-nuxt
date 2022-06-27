@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <h1 id="title">Want to say hello? Get in touch</h1>
+    <h1 id="title">Want to say hello? Get in touch here</h1>
     <transition name="fade" mode="out-in">
       <div v-if="!textShown" key="1" class="home-intro" @mouseover="toggleText">
         <img
@@ -113,11 +113,18 @@ h1.isSplit {
   display: flex;
   justify-content: center;
   img {
-    max-width: 750px;
+    max-width: 100%;
   }
 }
 .home-intro p {
   font-size: 1.25em;
+}
+.socials {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
 }
 @media screen and (min-width: 768px) {
   .home-intro {
@@ -130,10 +137,10 @@ h1.isSplit {
     font-size: 1.5em;
   }
 }
-.socials {
-  margin-top: 50px;
-  display: flex;
-  justify-content: space-between;
+@media screen and (min-width: 1024px) {
+  .socials {
+    margin: 50px 0 0;
+  }
 }
 .social {
   @extend .socials;
